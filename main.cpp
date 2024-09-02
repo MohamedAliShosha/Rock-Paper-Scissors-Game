@@ -27,7 +27,6 @@ struct stGameResults
 
 int RandomNumber(int From , int To)
 {
-    // Function to generate a random number
     int random = rand() % (To - From + 1) + From;
     return random;
 }
@@ -44,7 +43,7 @@ enWinner WhoWonTheRound(stRoundInfo RoundInfo)
     {
         return enWinner::Draw;
     }
-    // هنا كل الحالات اللي ممكن يكسب فيها الكمبيوتر
+
     switch (RoundInfo.Player1Choice)
     {
     case enGameChoice::Stone:
@@ -68,9 +67,8 @@ enWinner WhoWonTheRound(stRoundInfo RoundInfo)
         }
         break;
 
-    }
+}
 
-    //if you reach here then player1 is the winner.
     return enWinner::Player1;
     
 }
@@ -87,16 +85,16 @@ void SetWinnerScreenColor(enWinner Winner)
     switch (Winner)
     {
     case enWinner:: Player1:
-         system("color 2F"); //turn screen to Green
+         system("color 2F"); 
         break;
 
     case enWinner:: Computer:
-         system("color 4F"); //turn screen to Red
+         system("color 4F"); 
          cout << "\a";
         break;
 
         default:
-            system ("color 6F"); //turn screen to Yellow
+            system ("color 6F"); 
             break;
     }
 }
